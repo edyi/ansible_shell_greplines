@@ -1,0 +1,27 @@
+---
+- name: count all lines
+  shell: cat {{ item.accesslog }} | wc -l
+  register: l
+  failed_when: l.rc not in [0, 1]
+  with_items:
+    - "{{ target_files }}"
+
+- name: count words from accesslogs
+  shell: grep "{{ item.grep }}" {{ item.accesslog }} | wc -l
+  register: w
+  failed_when: w.rc not in [0, 1]
+  with_items:
+    - "{{ grep_words }}"
+
+- name: "*** debug lines count ***"
+  debug:
+    msg: "{{inventory_hostname}}, {{item.cmd}}, {{ item.stdout }}"
+  with_items:
+    - "{{ l.results }}"
+
+- name: "*** debug words count ***"
+  debug:
+    msg: "{{inventory_hostname}}, {{item.cmd}}, {{ item.stdout }}"
+  with_items:
+    - "{{ w.results }}"
+

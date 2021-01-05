@@ -1,0 +1,18 @@
+---
+target_files:
+  - { accesslog: /home/username/testdir/testfile01 }
+  - { accesslog: /home/username/testdir/testfile02 }
+
+grep_words:
+  - { accesslog: /home/username/testdir/testfile01 ,grep: hoge}
+  - { accesslog: /home/username/testdir/testfile01 ,grep: piyo}
+  - { accesslog: /home/username/testdir/testfile01 ,grep: moge}
+  - { accesslog: /home/username/testdir/testfile01 ,grep: spa ce}
+  - { accesslog: /home/username/testdir/testfile02 ,grep: hoge}
+  - { accesslog: /home/username/testdir/testfile02 ,grep: piyo}
+  - { accesslog: /home/username/testdir/testfile02 ,grep: moge}
+  - { accesslog: /home/username/testdir/testfile02 ,grep: spa ce}
+
+
+
+

@@ -1,0 +1,5 @@
+- hosts: servers
+  #   become_user: vagrant
+  #   become: yes
+  roles:
+    - common
